@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+morphologica
+eigen-3.4.0
