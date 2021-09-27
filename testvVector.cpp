@@ -265,12 +265,14 @@ int main() {
     std::cout << "(-cc/D).exp()=" << (-cc/D).exp() << std::endl;
     std::cout << "(-cc)/D=" << ((-cc)/D) << std::endl;
 
+#if 0
     // Cast to std::vector
     std::vector<float>& rv = static_cast<std::vector<float>&>(cc);
     std::vector<float> rv2 = static_cast<std::vector<float>>(cc);
     std::cout << "cast a vVector " << cc << " to std::vector:\n";
     std::cout << "(" << rv[0] << "," << rv[1] << ")" << std::endl;
     for (auto rvi : rv2) { std::cout << rvi << std::endl; }
+#endif
 
     // Convert precision
     cc = {1.234523452345, 5.23452345345};
