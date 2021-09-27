@@ -23,6 +23,7 @@ if (APPLE)
   set(CMAKE_CXX_FLAGS "${EXTRA_HOST_DEFINITION} -Wall -Wfatal-errors -g -O3")
 else() # assume g++ (or a gcc/g++ mimic like Clang)
   set(CMAKE_CXX_FLAGS "${EXTRA_HOST_DEFINITION} -Wall -Wfatal-errors -O3")
+  set(CMAKE_C_FLAGS "${EXTRA_HOST_DEFINITION} -Wall -Wfatal-errors -O3")
 endif()
 
 # Tell clang to be quiet about brace initialisers:
@@ -75,6 +76,14 @@ add_executable(exerciseEigen exerciseEigen.cpp)
 add_executable(exercisevVector exercisevVector.cpp)
 add_executable(simpleEigen simpleEigen.cpp)
 add_executable(simplevVector simplevVector.cpp)
+
+# -mavx2
+add_executable(avx2_example avx2_example.c)
+target_compile_options(avx2_example PUBLIC -mavx2)
+
+# -mavx512f
+add_executable(avx512_example avx512_example.c)
+target_compile_options(avx512_example PUBLIC -mavx512f)
 
 # For debugging of variables:
 option(DEBUG_VARIABLES OFF)
