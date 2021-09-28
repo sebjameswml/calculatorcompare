@@ -71,6 +71,7 @@ add_executable(testvVector testvVector.cpp) # from morphologica
 add_executable(testEigen testEigen.cpp)
 
 add_executable(exercise exercise.cpp)
+add_executable(exercise_smallvecs exercise_smallvecs.cpp)
 
 add_executable(exerciseEigen exerciseEigen.cpp)
 add_executable(exercisevVector exercisevVector.cpp)
