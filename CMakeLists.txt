@@ -74,6 +74,8 @@ add_executable(exercise exercise.cpp)
 add_executable(exercise_smallvecs exercise_smallvecs.cpp)
 
 add_executable(exerciseEigen exerciseEigen.cpp)
+target_compile_options(exerciseEigen PUBLIC -mavx2 -O3)
+
 add_executable(exercisevVector exercisevVector.cpp)
 add_executable(simpleEigen simpleEigen.cpp)
 add_executable(simplevVector simplevVector.cpp)
@@ -87,7 +89,7 @@ add_executable(avx2_longvector2 avx2_longvector.cpp)
 target_compile_options(avx2_longvector2 PUBLIC -mavx2)
 
 add_executable(avx2_vVector avx2_vVector.cpp)
-target_compile_options(avx2_vVector PUBLIC -mavx2)
+target_compile_options(avx2_vVector PUBLIC -mavx2 -O3)
 
 # -mavx512f. Compiles, even on my i9 which doesn't have avx512.
 add_executable(avx512_example avx512_example.c)
