@@ -20,10 +20,10 @@ set(CMAKE_CXX_STANDARD 17)
 # Add the host definition to CXXFLAGS along with other switches,
 # depending on OS/Compiler and your needs/preferences
 if (APPLE)
-  set(CMAKE_CXX_FLAGS "${EXTRA_HOST_DEFINITION} -Wall -Wfatal-errors -g -O3")
+  set(CMAKE_CXX_FLAGS "${EXTRA_HOST_DEFINITION} -Wall -Wfatal-errors")
 else() # assume g++ (or a gcc/g++ mimic like Clang)
-  set(CMAKE_CXX_FLAGS "${EXTRA_HOST_DEFINITION} -Wall -Wfatal-errors -O3")
-  set(CMAKE_C_FLAGS "${EXTRA_HOST_DEFINITION} -Wall -Wfatal-errors -O3")
+  set(CMAKE_CXX_FLAGS "${EXTRA_HOST_DEFINITION} -Wall -Wfatal-errors")
+  set(CMAKE_C_FLAGS "${EXTRA_HOST_DEFINITION} -Wall -Wfatal-errors")
 endif()
 
 # Tell clang to be quiet about brace initialisers:
@@ -83,6 +83,11 @@ add_executable(avx2_example avx2_example.c)
 target_compile_options(avx2_example PUBLIC -mavx2)
 add_executable(avx2_longvector avx2_longvector.c)
 target_compile_options(avx2_longvector PUBLIC -mavx2)
+add_executable(avx2_longvector2 avx2_longvector.cpp)
+target_compile_options(avx2_longvector2 PUBLIC -mavx2)
+
+add_executable(avx2_vVector avx2_vVector.cpp)
+target_compile_options(avx2_vVector PUBLIC -mavx2)
 
 # -mavx512f. Compiles, even on my i9 which doesn't have avx512.
 add_executable(avx512_example avx512_example.c)
